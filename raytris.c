@@ -1449,7 +1449,7 @@ int main (void) {
         }
     }
     
-    int target_line = 16;
+    int target_line = 12;
     
     // piece attributes
     int * piece_x = (int*)malloc(sizeof(int));
@@ -1461,6 +1461,10 @@ int main (void) {
     struct coord * piece_coord = (struct coord *)malloc(sizeof(struct coord) * 2);
     int piece_flag = 0;
     int piece = GetRandomValue(0, 6);
+    int bag[7] = {0, 0, 0, 0, 0, 0, 0};
+    int bag_picked = 0;
+    bag[piece]++;
+    bag_picked++;
     bool get_new_piece = false;
     
     // extras
@@ -1488,6 +1492,17 @@ int main (void) {
             prev_pieces[piece_count].rotation = *piece_rotation;
             piece_count++;
             piece = GetRandomValue(0, 6);
+            if (bag_picked == 7) {
+                for (int i = 0; i < 7; i++) {
+                    bag[i] = 0;
+                    bag_picked = 0;
+                }
+            }
+            while (bag[piece] == 1) {
+                piece = GetRandomValue(0, 6);
+            }
+            bag_picked++;
+            bag[piece] = 1;
             for (int i = 0; i < 10; i++) {
                 if (board[target_line - 1][i] == 1) {
                     piece_count = clear(board);
