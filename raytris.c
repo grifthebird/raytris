@@ -36,7 +36,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, GREEN); // top-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -47,7 +47,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos + (unit_size / 2), unit_size, unit_size, GREEN); // bottom-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -58,7 +58,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos + (unit_size / 2), unit_size, unit_size, GREEN); // bottom-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -69,7 +69,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, GREEN); // top-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
         }
@@ -82,7 +82,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, RED); // top-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -93,7 +93,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, RED); // top-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -104,7 +104,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos + (unit_size / 2), unit_size, unit_size, RED); // bottom-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -115,7 +115,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos + (unit_size / 2), unit_size, unit_size, RED); // top-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
         }
@@ -128,7 +128,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, ORANGE); // top-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -139,7 +139,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos + (unit_size / 2), unit_size, unit_size, ORANGE); // bottom-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -161,7 +161,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, ORANGE); // top-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             
@@ -175,7 +175,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, DARKBLUE); // top-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -186,7 +186,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, DARKBLUE); // top-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -197,7 +197,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos + (unit_size / 2), unit_size, unit_size, DARKBLUE); // bottom-right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -208,7 +208,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos + (unit_size / 2), unit_size, unit_size, DARKBLUE); // bottom-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
         }
@@ -222,7 +222,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + unit_size, y_pos, unit_size, unit_size, SKYBLUE); // right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos + unit_size, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos + unit_size, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -233,7 +233,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos , y_pos + unit_size, unit_size, unit_size, SKYBLUE); // bottom
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -244,7 +244,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + unit_size, y_pos + unit_size, unit_size, unit_size, SKYBLUE); // right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos + unit_size, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos + unit_size, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -255,7 +255,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos, y_pos + unit_size, unit_size, unit_size, SKYBLUE); // bottom
                 
                 // draw center
-                DrawCircle(x_pos + unit_size, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos + unit_size, y_pos, 3, RAYWHITE);
                 break;
             }
         }
@@ -268,7 +268,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
             DrawRectangle(x_pos, y_pos, unit_size, unit_size, YELLOW); // bottom-right
             
             // draw center
-            DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+            //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
             break;
         }
         case t: {
@@ -280,7 +280,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (unit_size / 2), y_pos - (3 * (unit_size / 2)), unit_size, unit_size, PURPLE); // top
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == east) {
@@ -291,7 +291,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos + (unit_size / 2), y_pos - (unit_size / 2), unit_size, unit_size, PURPLE); // right
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == south) {
@@ -302,7 +302,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (unit_size / 2), y_pos + (unit_size / 2), unit_size, unit_size, PURPLE); // bottom-middle
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -313,7 +313,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos - (unit_size / 2), unit_size, unit_size, PURPLE); // left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
         }
@@ -1436,6 +1436,9 @@ int main (void) {
     // draw parent window
     InitWindow(window_width, window_height, "raytris");
     
+    // title screen variable
+    bool title_screen = true;
+    
     // board sizing
     int ** board; // board[rows][cols], 20x10
     board = (int**)malloc(sizeof(int*) * 20);
@@ -1485,6 +1488,26 @@ int main (void) {
     
     while(!WindowShouldClose()) {
         BeginDrawing();
+        while (title_screen) {
+            ClearBackground(RAYWHITE);
+            DrawRectangle(window_width - 80, window_height - 80, 64, 64, BLACK);
+            DrawRectangle(window_width - 76, window_height - 76, 56, 56, RAYWHITE);
+            DrawText("raylib", window_width - 54, window_height - 34, 12, BLACK);
+            DrawText("powered by:", window_width - 80, window_height - 92, 10, LIGHTGRAY);
+            DrawText("Press enter to start.", (window_width / 2) - (12 * 5), window_height - 28, 12, DARKGRAY);
+            DrawText("r", (window_width / 2) - 105, (window_height / 2), 40, RED);
+            DrawText("a", (window_width / 2) - 70, (window_height / 2), 40, ORANGE);
+            DrawText("y", (window_width / 2) - 35, (window_height / 2), 40, YELLOW);
+            DrawText("t", (window_width / 2), (window_height / 2), 40, GREEN);
+            DrawText("r", (window_width / 2) + 35, (window_height / 2), 40, DARKBLUE);
+            DrawText("i", (window_width / 2) + 70, (window_height / 2), 40, SKYBLUE);
+            DrawText("s", (window_width / 2) + 105, (window_height / 2), 40, PURPLE);
+            if (IsKeyDown(KEY_ENTER)) {
+                title_screen = false;
+            }
+            EndDrawing();
+            continue;
+        }
         if (get_new_piece) {
             prev_pieces[piece_count].piece = piece;
             prev_pieces[piece_count].x_pos = *piece_x;
