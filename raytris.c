@@ -150,7 +150,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
                 DrawRectangle(x_pos - (3 * (unit_size / 2)), y_pos + (unit_size / 2), unit_size, unit_size, ORANGE); // bottom-left
                 
                 // draw center
-                DrawCircle(x_pos, y_pos, 3, RAYWHITE);
+                //DrawCircle(x_pos, y_pos, 3, RAYWHITE);
                 break;
             }
             else if (rotation == west) {
@@ -323,7 +323,7 @@ void draw_piece(pieces piece, int x_pos, int y_pos, orientation rotation) {
     }
 }
 
-void draw_board(int board_width, int board_height) {
+void draw_board(int board_width, int board_height, int current_score, int next_piece) {
     ClearBackground(DARKGRAY);
     DrawRectangle(
     (window_width - board_width) / 2,
@@ -377,6 +377,15 @@ void draw_board(int board_width, int board_height) {
     12,
     LIGHTGRAY);
     
+    char score[24];
+    sprintf(score, "%d", current_score);
+    DrawText(score,
+    ((window_width - board_width) / 2) - 120 - unit_size + 1 + 56,
+    ((window_height - board_height) / 2) + (17 * unit_size) + 14 - 6 + 11,
+    24,
+    BLACK
+    );
+    
     DrawRectangle(
     ((window_width - board_width) / 2) + board_width + unit_size,
     ((window_height - board_height) / 2) + (17 * unit_size) - 6, 
@@ -391,11 +400,30 @@ void draw_board(int board_width, int board_height) {
     45,
     LIGHTGRAY);
     
-    DrawText("hold",
+    DrawText("next",
     ((window_width - board_width) / 2) + board_width + unit_size + 45,
     ((window_height - board_height) / 2) + (17 * unit_size) - 6,
     12,
     LIGHTGRAY);
+    
+    if (next_piece == 5) { // o piece spawns fine
+        draw_piece(next_piece,
+        ((window_width - board_width) / 2) + board_width + unit_size + 1 + 59,
+        ((window_height - board_height) / 2) + (17 * unit_size) + 14 - 6 + 22,
+        0);
+    }
+    else if (next_piece == 4) { // fix i piece spawing low
+        draw_piece(next_piece,
+        ((window_width - board_width) / 2) + board_width + unit_size + 1 + 59,
+        ((window_height - board_height) / 2) + (17 * unit_size) + 14 - 6 + 12,
+        0);
+    }
+    else { // all other pieces spawn too high
+        draw_piece(next_piece,
+        ((window_width - board_width) / 2) + board_width + unit_size + 1 + 59,
+        ((window_height - board_height) / 2) + (17 * unit_size) + 14 - 6 + 31,
+        0);
+    }
 }
 
 struct coord get_pos (int board_width, int board_height, int piece_x, int piece_y) {
@@ -611,9 +639,11 @@ void board_update(pieces piece_type, orientation piece_rotation, struct coord pi
         }
     }
     
+    /*
     if (mode) {
         print_board(board_state);
     }
+    */
 }
 
 bool collision (pieces piece_type, orientation piece_rotation, struct coord piece_pos, int ** board_state, int mode) {
@@ -1432,6 +1462,25 @@ int clear (int ** board_state) {
     return 0;
 }
 
+int get_score (int ** board_state, int target_line) {
+    int score = (20 - target_line);
+    for (int i = 19; i >= target_line; i--) {
+        for (int j = 0; j < 10; j++) {
+            if (board_state[i][j] == 0) {
+                score--;
+            }
+        }
+    }
+    
+    if (score <= 0) {
+        return 0;
+    }
+    else { 
+        return score; 
+    }
+    
+}
+
 int main (void) {
     // draw parent window
     InitWindow(window_width, window_height, "raytris");
@@ -1452,7 +1501,9 @@ int main (void) {
         }
     }
     
-    int target_line = 12;
+    int target_line = 16;
+    
+    int score = 0;
     
     // piece attributes
     int * piece_x = (int*)malloc(sizeof(int));
@@ -1464,10 +1515,12 @@ int main (void) {
     struct coord * piece_coord = (struct coord *)malloc(sizeof(struct coord) * 2);
     int piece_flag = 0;
     int piece = GetRandomValue(0, 6);
+    int next_piece = GetRandomValue(0, 6);
     int bag[7] = {0, 0, 0, 0, 0, 0, 0};
     int bag_picked = 0;
     bag[piece]++;
-    bag_picked++;
+    bag[next_piece]++;
+    bag_picked += 2;
     bool get_new_piece = false;
     
     // extras
@@ -1481,8 +1534,6 @@ int main (void) {
     
     /* todo
     boundary detections (rotations)
-    scoring
-    hold
     lose condition
     */
     
@@ -1514,22 +1565,28 @@ int main (void) {
             prev_pieces[piece_count].y_pos = *piece_y;
             prev_pieces[piece_count].rotation = *piece_rotation;
             piece_count++;
-            piece = GetRandomValue(0, 6);
+            piece = next_piece;
+            next_piece = GetRandomValue(0, 6);
             if (bag_picked == 7) {
                 for (int i = 0; i < 7; i++) {
                     bag[i] = 0;
                     bag_picked = 0;
                 }
             }
-            while (bag[piece] == 1) {
-                piece = GetRandomValue(0, 6);
+            while (bag[next_piece] == 1) {
+                next_piece = GetRandomValue(0, 6);
             }
             bag_picked++;
-            bag[piece] = 1;
+            bag[next_piece] = 1;
             for (int i = 0; i < 10; i++) {
                 if (board[target_line - 1][i] == 1) {
+                    score += get_score(board, target_line); // add call to score function
+                    //printf("score: %d\n", score);
                     piece_count = clear(board);
                     target_line = GetRandomValue(4, 16);
+                    while (target_line % 2) {
+                        target_line = GetRandomValue(4, 16);
+                    }
                 }
             }
             * piece_rotation = 0;
@@ -1543,7 +1600,7 @@ int main (void) {
             //printf("a\n");
             board_update(piece, *piece_rotation, *piece_coord, board, 0);
         }
-        draw_board(unit_size * 10, unit_size * 20);
+        draw_board(unit_size * 10, unit_size * 20, score, next_piece);
         DrawLine((window_width - (unit_size * 10)) / 2, ((window_height - (unit_size * 20)) / 2) + (target_line * unit_size), (window_width + (unit_size * 10)) / 2, ((window_height - (unit_size * 20)) / 2) + (target_line * unit_size), MAROON);
         if ((piece == 4 || piece == 5) && !piece_flag) {
             *piece_x += (unit_size / 2);
@@ -1573,7 +1630,7 @@ int main (void) {
         if (!get_new_piece) {
             *piece_y += unit_size;
         }
-        printf("piece is at (%d, %d)\n", piece_coord->x, piece_coord->y);
+        //printf("piece is at (%d, %d)\n", piece_coord->x, piece_coord->y);
         board_update(piece, *piece_rotation, *piece_coord, board, 1);
         }
         EndDrawing();
