@@ -1484,6 +1484,9 @@ int get_score (int ** board_state, int target_line) {
 int main (void) {
     // draw parent window
     InitWindow(window_width, window_height, "raytris");
+    Image image = LoadImage("images/Bird.jpg");
+    Texture2D texture = LoadTextureFromImage(image);
+    UnloadImage(image);
     
     // title screen variable
     bool title_screen = true;
@@ -1553,6 +1556,7 @@ int main (void) {
             DrawText("r", (window_width / 2) + 35, (window_height / 2), 40, DARKBLUE);
             DrawText("i", (window_width / 2) + 70, (window_height / 2), 40, SKYBLUE);
             DrawText("s", (window_width / 2) + 105, (window_height / 2), 40, PURPLE);
+            DrawTexture(texture, 10, (window_height - 16) - 34, WHITE);
             if (IsKeyDown(KEY_ENTER)) {
                 title_screen = false;
             }
@@ -1647,5 +1651,6 @@ int main (void) {
     }
     free(board);
     free(piece_coord);
+    UnloadTexture(texture);
     return 0;
 }
